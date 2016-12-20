@@ -1,0 +1,18 @@
+ease-out-quart = cubic-bezier(0.165, 0.84, 0.44, 1)
+
+tablet = 30em
+above($width)
+  @media (min-width: $width)
+    {block}
+
+$title = 'Hammersmith One', sans-serif;
+$default = 'Open Sans', sans-serif;
+
+html, body
+  height 100%
+
+body
+  font-family $default
+
+h1, h2, h3
+  font-family $title

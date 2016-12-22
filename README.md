@@ -1,4 +1,6 @@
-# My Boilerplate
+# Farfor Events Page
+
+Made with my [Boilerplate](https://github.com/hudakdidit/my-boilerplate)
 
 ## Setup & Dev Mode
 
@@ -7,7 +9,6 @@
 3. run `npm install pug-cli -g`
 4. run `npm start`
 5. open http://localhost:8080
-
 
 ## Build
 

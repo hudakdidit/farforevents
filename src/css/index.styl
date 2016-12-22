@@ -1,18 +1,225 @@
 ease-out-quart = cubic-bezier(0.165, 0.84, 0.44, 1)
 
-tablet = 30em
+tablet = 1000px
 above($width)
   @media (min-width: $width)
     {block}
 
-$title = 'Hammersmith One', sans-serif;
-$default = 'Open Sans', sans-serif;
+$black = #000
+$accent = #d30878
+$default = 'Nunito Sans', sans-serif;
 
 html, body
   height 100%
+  margin 0
+  padding 0
+
+html
+  font-size 16px
 
 body
   font-family $default
+  color $black
+  font-size 1rem
+
+  a
+    color $accent
+
+  *
+    box-sizing border-box
+
+  img
+    max-width 100%
+    height auto
+
+.heading
+  display flex
+  justify-content center
+  align-items center
+  flex-direction column
+  padding .5rem
+  text-align center
 
 h1, h2, h3
-  font-family $title
+  letter-spacing .025rem
+  font-weight 200
+
+h1
+  font-size 1.5rem
+  +above(tablet)
+    font-size 2rem
+
+h2
+  font-size 1.35rem
+  +above(tablet)
+    font-size 1.75rem
+
+h3
+  text-transform uppercase
+
+.preload-photo
+  opacity 0
+  transition opacity 200ms ease-out-quart
+  &.loaded
+    opacity 1
+
+.project-heading
+  position relative
+  height 75%
+  display flex
+  flex-direction column
+  align-items center
+  justify-content center
+  padding-bottom 2rem
+  border-top 4px solid $black
+
+  .preload-photo
+    flex none
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+    z-index 1
+    background-size cover
+    background-position center
+    background-repeat no-repeat
+    +above(tablet)
+      background-attachment fixed
+
+    &::after
+      content ''
+      position absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+      background rgba(black, .35)
+      z-index 2
+
+.project-heading__content
+  position relative
+  z-index 3
+  color white
+  text-align center
+
+  h2
+    margin 0
+    &::after,
+    &::before
+      content ''
+      height 1px
+      width 100%
+      position absolute
+      top -1rem
+      left 50%
+      transform translateX(-50%)
+      display block
+      background white
+    &::after
+      top auto
+      bottom -1rem
+
+.project-details
+  padding-top 1rem
+  +above(tablet)
+    display flex
+    align-items center
+    justify-content flex-start
+    padding-left 2rem
+
+  & > ul
+    flex 0 0 33.33%
+    list-style none
+    padding 1rem
+    margin 0
+
+    li
+      margin-bottom 1rem
+  li
+    overflow-wrap break-word
+    word-wrap break-word
+
+  strong
+    display block
+
+  p.lead
+    font-size 1.25rem
+    line-height 1.5
+
+.project-description
+  padding 1rem
+  flex 1 0 auto
+
+  p
+    max-width 60ch
+
+.project-photos
+  padding-bottom 3rem
+  +above(tablet)
+    display flex
+    flex-wrap wrap
+    padding 1rem 3rem 4rem
+
+  .photo
+    flex 1 0 33.333%
+
+  .photo.col
+    flex 0 1 33.33%
+    display flex
+    flex-direction column
+    justify-content space-between
+
+  img
+    max-width 100%
+    height auto
+    vertical-align top
+
+.embed-container
+    position relative
+    padding-bottom 56.25%
+    height 0
+    overflow hidden
+    max-width 100%
+
+.embed-container iframe, .embed-container object, .embed-container embed
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+
+.project-video
+  padding 1rem
+  padding-bottom 4rem
+  max-width 900px
+  margin auto
+  +above(tablet)
+    padding-left 3rem
+
+.photo-divider
+  height 2px
+  width 33.33%
+  background $accent
+  margin auto
+  display none
+  +above(tablet)
+    display block
+
+.footer
+  text-align center
+  display flex
+  flex-direction column
+
+.button
+  text-decoration none
+  background white
+  border 2px solid $accent
+  padding .5rem 1rem
+  display inline-block
+  margin 1rem
+  transition background 200ms ease-out-quart
+  border-radius 2px
+  &:hover
+    background $accent
+    color white

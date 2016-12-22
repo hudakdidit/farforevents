@@ -7,7 +7,7 @@
     "start": "npm-run-all clean --parallel dev-js dev-jade",
     "build": "npm-run-all clean --parallel prod-js prod-jade",
     "clean": "rm  -f public/index.html",
-    "dev-js": "webpack-dev-server --watch --display-error-details webpack.config.js --content-base public",
+    "dev-js": "webpack-dev-server --watch --display-error-details webpack.config.js --content-base public --port 3000",
     "dev-jade": "pug -E html src/html/index.pug -P -w --out public -O '{\"ENV\": \"dev\"}'",
     "prod-js": "webpack -p --config webpack.production.config.js",
     "prod-jade": "pug -E html -P src/html/index.pug --out public -O '{\"ENV\": \"prod\"}'"

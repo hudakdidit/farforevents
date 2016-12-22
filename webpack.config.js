@@ -15,6 +15,9 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.json']
   },
+  externals: {
+        "jquery": "jQuery"
+  },
   module: {
       loaders: [
         { test: /\.json$/, loader: 'json'},
@@ -33,6 +36,9 @@ module.exports = {
         }
       ]
   },
+  plugins: [
+    new ExtractTextPlugin("[name].css", {allChunks: true})
+  ],
   stylus: {
     use: [
       poststylus([ 'autoprefixer' ])
